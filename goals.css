@@ -1,0 +1,98 @@
+/* V3 concept/role flow only. Reuse V2 palette, type, shadows and motion. */
+.v3-goals{position:relative;isolation:isolate;background:#302a25d9;color:#fff7eb;padding-bottom:0;overflow:hidden}
+.v3-goals-backdrop{position:fixed;top:0;left:50%;width:min(100%,560px);height:100svh;transform:translateX(-50%);z-index:-2;overflow:hidden;filter:blur(12px);opacity:.8;pointer-events:none}
+.v3-goals-backdrop>.app-shell{background:var(--paper);min-height:100svh}
+.v3-goals:before{content:'';position:absolute;inset:0;z-index:-1;background:#241d18b8;pointer-events:none}
+.v3-goals-main{min-height:100svh;padding:36px 16px 64px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.v3-speech-box{position:relative;width:100%;max-width:330px;min-height:176px;display:grid;align-items:center;background:#fffbf6;color:var(--ink);border-radius:36px;padding:54px 24px;box-shadow:var(--shadow);flex:none}
+.v3-speech{position:relative;align-self:center;font-size:18px;line-height:1.65;font-weight:500;text-align:center;word-break:keep-all;overflow-wrap:anywhere;white-space:pre-line}
+.v3-text-reserve{display:block;visibility:hidden}.v3-typed{position:absolute;inset:0;white-space:pre-line}
+.v3-controls{position:absolute;left:20px;right:20px;bottom:6px;display:flex;justify-content:space-between;align-items:center;min-height:44px}
+.v3-next,.v3-previous{min-width:44px;min-height:44px;background:none;color:inherit;border-radius:12px;line-height:1;padding:0 4px;display:flex;align-items:center;justify-content:flex-end;gap:10px;font-size:32px;font-weight:400}
+.v3-next{margin-left:auto}.v3-next>span:first-child:not(:last-child){font-size:16px;line-height:1.4;font-weight:500}.v3-previous{font-size:24px}
+.v3-goals button:focus-visible{outline:3px solid var(--brick);outline-offset:4px}
+.v3-illustration{width:100%;flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:4px 0}
+.v3-role{margin:0;position:relative;min-width:0;text-align:center;flex:1}
+.v3-card-face{position:relative;width:100%;max-width:160px;margin:auto}
+.v3-card-face img{width:100%;height:auto;filter:drop-shadow(0 7px 7px #4b301428)}
+.v3-role figcaption{font-size:14px;font-weight:500;line-height:1.5;margin-top:7px;white-space:normal;color:inherit}
+.v3-cross{position:absolute;inset:0;visibility:hidden;pointer-events:none;color:var(--brick)}
+.v3-cross:before,.v3-cross:after{content:'';position:absolute;top:50%;left:50%;width:168%;height:3.5px;background:currentColor;border-radius:2px;transform:translate(-50%,-50%) rotate(55deg)}
+.v3-cross:after{transform:translate(-50%,-50%) rotate(-55deg)}
+.v3-role[data-dead=true] .v3-cross{visibility:visible}.v3-role[data-dead=true] img{filter:brightness(.78) saturate(.7)}
+.v3-role-group{display:flex;gap:18px;align-items:center;justify-content:center;min-width:0;width:100%;padding:4px;position:relative}
+.v3-role-grid{width:100%;display:grid;gap:20px}.v3-role-grid>.v3-role-group{gap:16px}
+.v3-role-grid [data-highlight=true]:after{content:'';position:absolute;inset:-2px;border:5px solid var(--brick);border-radius:25px;pointer-events:none}
+.v3-role-grid>.v3-role-group>.v3-role[data-highlight=true]:after{inset:-8px}
+.v3-role-grid [data-highlight=true][data-settled=true]{animation:none}
+/* Strong overlap identifies the sheriff/deputy team. Names stay below it. */
+.v3-police-pair{position:relative;width:302px;max-width:100%;aspect-ratio:.72}
+.v3-police-pair>.v3-role{position:absolute;width:68%;height:100%;top:0;left:0;z-index:2}
+.v3-police-pair>.v3-role+figure{top:23%;left:auto;right:0;height:77%;z-index:1}
+.v3-police-pair .v3-card-face{max-width:none}
+.v3-police-pair figcaption{position:absolute;bottom:0;left:12px;margin:0;white-space:nowrap}
+.v3-police-pair>.v3-role+figure figcaption{left:auto;right:12px}
+.v3-single{width:min(84%,260px);margin:12px auto}.v3-single .v3-card-face{max-width:260px}
+.v3-battle-wrap{width:100%;position:relative}
+.v3-battle{display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr);gap:6px;align-items:center;width:100%}
+.v3-battle .v3-role-group{flex-direction:column;padding:0;gap:18px}.v3-battle .v3-role{width:100%}
+.v3-battle .v3-card-face{max-width:144px}.v3-battle .v3-role figcaption{font-size:14px;margin-top:6px}
+.v3-battle .v3-stacked-team{position:relative;display:block;padding:0;aspect-ratio:.5}
+.v3-battle .v3-stacked-team>.v3-role{position:absolute;width:85%;height:100%;left:0;top:0;z-index:2}
+.v3-battle .v3-stacked-team>.v3-role+figure{top:28%;height:72%;left:auto;right:0;z-index:1}
+.v3-battle .v3-stacked-team figcaption{position:absolute;left:0;bottom:0;margin:0;white-space:nowrap}
+.v3-battle .v3-stacked-team>.v3-role+figure figcaption{left:auto;right:0}
+.v3-deputy-battle .v3-battle{grid-template-columns:minmax(0,1fr) 112px minmax(0,1fr)}
+
+.v3-weapon{position:relative;color:#fff7eb;align-self:center;transform-origin:25% 65%}
+.v3-weapon svg{width:100%;display:block}
+.v3-team-victory{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);visibility:hidden;pointer-events:none;color:inherit}
+.v3-team-victory[data-visible=true]{visibility:visible}.v3-crown{width:112px;height:84px;display:block}
+.v3-battle-wrap:has(.v3-team-victory[data-visible=true]) .v3-weapon{visibility:hidden}
+.v3-fall{display:grid;grid-template-columns:minmax(0,180px) 26px 76px;gap:14px;align-items:center;justify-content:center;width:100%}
+.v3-fall .v3-card-face{max-width:180px}.v3-skull{width:76px;height:90px;color:inherit}
+.v3-diagram-arrow{font-size:30px;line-height:1;flex:none;font-weight:400}
+.v3-alone{display:flex;flex-direction:column;align-items:center;width:100%;gap:22px}
+.v3-alone>.v3-survivor{width:64%;max-width:216px;flex:none}
+.v3-alone>.v3-survivor .v3-card-face{max-width:216px}
+.v3-fallen-roles{display:flex;gap:8px;width:100%}
+.v3-order{width:100%;display:flex;align-items:center;justify-content:center}.v3-order-row{width:100%}.v3-order-row{padding:0;background:none;border:0;box-shadow:none}
+.v3-order-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) 20px 34px;gap:6px;align-items:center}
+.v3-order-cards .v3-viewpoint{transform:scale(1.04)}
+.v3-order-row[data-result=win] .v3-order-cards{grid-template-columns:repeat(3,minmax(0,1fr)) 20px 64px}
+.v3-order-row .v3-crown{width:64px;height:48px}
+.v3-order-cards .v3-diagram-arrow{font-size:26px}.v3-order-cards figcaption{font-size:12px}
+.v3-outcome{font-size:19px;font-weight:500;visibility:hidden;color:inherit}.v3-outcome[data-visible=true]{visibility:visible}
+.v3-concept .v3-goals-main{justify-content:center;padding-top:18px;gap:24px}
+.v3-concept .v3-speech-box{min-height:250px;max-width:300px}
+.v3-concept .v3-illustration{display:none}
+.v3-goals-notice .v3-goals-main{justify-content:center;gap:20px;padding:30px}
+.v3-goals-notice .v3-speech-box{background:none;color:#fff;box-shadow:none;border-radius:0;padding:0;max-width:350px;min-height:0;grid-template-rows:auto 48px;gap:24px}
+.v3-goals-notice .v3-controls{position:static}
+.v3-goals-notice .v3-speech{font-size:24px;font-weight:500;line-height:1.7}
+.v3-goals-notice .v3-illustration{display:none}
+/* Only overlapped sheriff cards move their existing name to the upper left. */
+.v3-police-pair>.v3-role[data-role=sheriff] figcaption,
+.v3-battle .v3-stacked-team>.v3-role[data-role=sheriff] figcaption{top:-28px;left:0;right:auto;bottom:auto;margin:0}
+.v3-illustration:has(.v3-police-pair),.v3-illustration:has(.v3-stacked-team){padding-top:34px}
+/* These keyframes already belong to V2; use its restrained arrival and pulse. */
+@media(prefers-reduced-motion:no-preference){
+ .v3-illustration>div{animation:v2-arrival .4s ease-out}
+ .v3-illustration[data-art=teams]>div{animation:none}
+ .v3-role-grid [data-highlight=true]{animation:lesson-pulse 1.1s ease-in-out 3}
+ .v3-role[data-dead=true] .v3-cross,.v3-team-victory[data-visible=true] .v3-crown,.v3-outcome[data-visible=true]{animation:v2-arrival .4s ease-out}
+ .v3-battle[data-phase=raising] .v3-weapon{animation:v3-muzzle-lift .55s ease-out both}
+}
+@keyframes v3-muzzle-lift{0%,100%{transform:rotate(0)}36%{transform:rotate(-18deg)}}
+@media(max-width:350px){
+ .v3-goals-main{padding:28px 12px 56px;gap:18px}
+ .v3-speech-box{padding-inline:20px;border-radius:32px}
+ .v3-role-grid>.v3-role-group{gap:14px}
+ .v3-order-cards{gap:6px;grid-template-columns:repeat(3,minmax(0,1fr)) 18px 34px}
+ .v3-order-cards figcaption{font-size:11px}.v3-goals-notice .v3-speech{font-size:23px}
+ .v3-deputy-battle .v3-battle{grid-template-columns:minmax(0,1fr) 96px minmax(0,1fr)}
+ .v3-team-victory .v3-crown{width:96px;height:72px}
+ .v3-fall{grid-template-columns:minmax(0,168px) 24px 70px;gap:12px}.v3-skull{width:70px}
+}
+@media(max-height:740px){.v3-goals-main{padding-top:24px}}
+@media(prefers-reduced-motion:reduce){.v3-goals *{animation:none!important;transition:none!important}}
